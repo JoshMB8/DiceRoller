@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TTRPG Dice Roller</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>TTRPG Dice Roller</h1>
+    </header>
+
+    <form class="dice-selector">
+        <p>Select Dice to Roll</p>
+
+        <div class="choose-dice"> <!-- Dice selector. Options for D20, 12, 10, 8, 6, 4, and percentile dice. Percentile rolls as if a D00 and D10 are being rolled together. -->
+            <div class="dice">
+                <label class="container"> <!-- Each dice is insider a container which provides the format for a custom radio button provide links to allow dice choice. -->
+                    <input type="radio" name="dice" id="d20" class="check" onclick="choose('d20')" onchange="advDisOn()"> <!-- onChange will enable the advantage/ disadvantage check box. -->
+                    <span class="checkmark"></span>
+                </label><label for="d20">D20</label>
+            </div>
+            <img id="20img" src="Images/20.png" /> <!-- Dice images for each dice type. -->
+
+            <div class="adv/dis"> <!-- Custom "slider" check box for selecting to roll with advantage or disadvantage. -->
+                <label class="switch">
+                    <input type="checkbox" name="adv/disadv" id="adv/disadv">
+                    <span class="slider round"></span>
+                </label>
+                <label for="adv/disadv">Adv/ Dis</label>
+            </div>
+
+            <div class="dice">
+                <label class="container">
+                    <input type="radio" name="dice" id="d12" class="check" onclick="choose('d12')" onchange="advDisOff()"> <!-- onChange will disable the advantage/ disadvantage check box. -->
+                    <span class="checkmark"></span>
+                </label><label for="d12">D12</label>
+            </div>
+            <img id="12img" src="Images/12.png" />
+            <div class="quantity">
+                <label for="q-d12">Quantity:</label><input value="1" type="number" name="quantity" id="q-d12" min="1" max="12"> <!-- Quantity selection box for dice types. -->
+            </div>
+
+            <div class="dice">
+                <label class="container">
+                    <input type="radio" name="dice" id="d00" class="check" onclick="choose('d00')" onchange="advDisOff()">
+                    <span class="checkmark"></span>
+                </label><label for="d00">D00/ %</label>
+            </div>
+            <img id="00img" src="Images/00.png" />
+            <div class="quantity">
+                <label for="q-d00">Quantity:</label>
+                <input value="1" type="number" name="quantity" id="q-d00" min="1" max="12">
+            </div>
+
+            <div class="dice">
+                <label class="container">
+                    <input type="radio" name="dice" id="d10" class="check" onclick="choose('d10')" onchange="advDisOff()">
+                    <span class="checkmark"></span>
+                </label><label for="d10">D10</label>
+            </div>
+            <img id="10img" src="Images/10.png" />
+            <div class="quantity">
+                <label for="q-d10">Quantity:</label>
+                <input value="1" type="number" name="quantity" id="q-d10" min="1" max="12">
+            </div>
+
+            <div class="dice">
+                <label class="container">
+                    <input type="radio" name="dice" id="d8" class="check" onclick="choose('d8')" onchange="advDisOff()">
+                    <span class="checkmark"></span>
+                </label><label for="d8">D8</label>
+            </div>
+            <img id="8img" src="Images/8.png" />
+            <div class="quantity">
+                <label for="q-d8">Quantity:</label>
+                <input value="1" type="number" name="quantity" id="q-d8"min="1" max="12">
+            </div>
+
+            <div class="dice">
+                <label class="container">
+                    <input type="radio" name="dice" id="d6" class="check" onclick="choose('d6')" onchange="advDisOff()">
+                    <span class="checkmark"></span>
+                </label><label for="d6">D6</label>
+            </div>
+            <img id="6img" src="Images/6.png" />
+            <div class="quantity">
+                <label for="q-d6">Quantity:</label>
+                <input value="1" type="number" name="quantity" id="q-d6" min="1" max="12">
+            </div>
+
+            <div class="dice">
+                <label class="container">
+                    <input type="radio" name="dice" id="d4" class="check" onclick="choose('d4')" onchange="advDisOff()">
+                    <span class="checkmark"></span>
+                </label><label for="d4">D4</label>
+            </div>
+            <img id="4img" src="Images/4.png" />
+            <div class="quantity">
+                <label for="q-d4">Quantity:</label>
+                <input value="1" type="number" name="quantity" id="q-d4" min="1" max="12">
+            </div>
+        </div>
+
+        <br><br><br>
+
+        <div class="stats">
+        <input type="radio" name="dice" id="stats" class="check" onclick="choose('stats')"><label for="stats">Roll for Stats</label><br> <!-- Additional radio button for rolling character stats. -->
+        </div>
+
+        <br>
+        <input onclick="return false" type="submit" id="roll-button" value="Roll!" class="button"> <!-- Button to roll dice. -->
+        <p id="roll" class="roll"></p>
+        <br>
+
+
+    <script src="script.js"></script>
+    </form>
+
+</body>
+</html>
