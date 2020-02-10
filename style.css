@@ -373,6 +373,12 @@ input:checked + .slider:before {
 
 /* Media friendly responsive elements */
 
+@media only screen {
+    label[for = d20], label[for = d12], label[for = d00], label[for = d10], label[for = d8], label[for = d6], label[for = d4] {
+    font-size: 20px;
+  }
+}
+
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
